@@ -1,11 +1,23 @@
 
 
+document.getElementById("btn").onclick = function(){register_user()};
 
-document.getElementById("btn").onclick = function(){print_name()};
+function register_user() { 
 
-function print_name() { 
+var URL = "http://localhost:8888/biblioteca/public/index.php/api/userStore";
 
-var name = document.getElementById("Name").value;
+//var data = {'email':$('#Email').value,'name':$('#Name').value,'password':$('#Password').value};
+var data = {
+    'email':$('#Email').value,
+    'name':$('#Name').value,
+    'password':$('#Password').value
+};
+// $.ajax
+    $.post(URL,data);
+console.log($('#Email').value)
+/*var name = document.getElementById("Name").value;
 console.log(name);  
+*/
+
 
 }
