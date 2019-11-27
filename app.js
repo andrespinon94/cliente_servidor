@@ -5,19 +5,15 @@ document.getElementById("btn").onclick = function(){register_user()};
 function register_user() { 
 
 var URL = "http://localhost:8888/biblioteca/public/index.php/api/userStore";
+var name = document.getElementById("Name").value;
+var email = document.getElementById("Email").value ;
+var password = document.getElementById("Password").value ;
+var datos_usuario = {'name':name,'email':email,'password':password};
 
-//var data = {'email':$('#Email').value,'name':$('#Name').value,'password':$('#Password').value};
-var data = {
-    'email':$('#Email').value,
-    'name':$('#Name').value,
-    'password':$('#Password').value
-};
-// $.ajax
-    $.post(URL,data);
-console.log($('#Email').value)
-/*var name = document.getElementById("Name").value;
-console.log(name);  
-*/
 
+$.ajax(URL,{
+    type: 'POST',
+    data: datos_usuario
+});
 
 }
